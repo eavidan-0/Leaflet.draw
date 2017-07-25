@@ -44,21 +44,21 @@ L.Draw.Rectangle = L.Draw.SimpleShape.extend({
 	},
     
     _onMouseUp: function (e) {
-        if (!this._shape && !this._twoClicksToggle) {
-            this._twoClicksToggle = true;
-            return;
-        }
-        
-        // Make sure closing click is on map
-        if (this._twoClicksToggle && !_hasAncestor(e.target, 'leaflet-pane')) {
-            return;
-        }
-        
-        L.Draw.SimpleShape.prototype._onMouseUp.call(this);
-	},
+		if (!this._shape && !this._twoClicksToggle) {
+			this._twoClicksToggle = true;
+			return;
+		}
+		
+		// Make sure closing click is on map
+		if (this._twoClicksToggle && !_hasAncestor(e.target, 'leaflet-pane')) {
+			return;
+		}
 
+		L.Draw.SimpleShape.prototype._onMouseUp.call(this);
+	},
+    
 	_drawShape: function (latlng) {
-		if (!this._shape) {
+        if (!this._shape) {
 			this._shape = new L.Rectangle(new L.LatLngBounds(this._startLatLng, latlng), this.options.shapeOptions);
 			this._map.addLayer(this._shape);
 		} else {
@@ -91,6 +91,6 @@ L.Draw.Rectangle = L.Draw.SimpleShape.extend({
 });
 
 function _hasAncestor (el, cls) {
-    while ((el = el.parentElement) && !el.classList.contains(cls));
-    return el;
+	while ((el = el.parentElement) && !el.classList.contains(cls));
+	return el;
 }
