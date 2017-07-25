@@ -54,7 +54,7 @@ L.Draw.Rectangle = L.Draw.SimpleShape.extend({
             return;
         }
         
-		L.Draw.SimpleShape.prototype._onMouseUp.call(this);
+        L.Draw.SimpleShape.prototype._onMouseUp.call(this);
 	},
 
 	_drawShape: function (latlng) {
