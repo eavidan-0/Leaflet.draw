@@ -58,7 +58,7 @@ L.Draw.Rectangle = L.Draw.SimpleShape.extend({
 	},
     
 	_drawShape: function (latlng) {
-        if (!this._shape) {
+		if (!this._shape) {
 			this._shape = new L.Rectangle(new L.LatLngBounds(this._startLatLng, latlng), this.options.shapeOptions);
 			this._map.addLayer(this._shape);
 		} else {
